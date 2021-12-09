@@ -59,4 +59,41 @@ class RegexQ4{
     }
 }
 
+// Entered phone no. is valid or not
 
+class RegexQ5{
+    public static void main(String[] args) {
+        try{
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        Pattern p4 = Pattern.compile("[6|7|8|9][0-9]{9}");
+        Matcher m4 = p4.matcher(s);
+        if(s.length()==10){
+        int c=0;
+        while (m4.find()){
+            System.out.println(m4.start()+"---"+m4.end()+"---"+m4.group());
+            c++;
+            System.out.println("valid Phone no.");
+        }
+        if(s.length()<10){
+            throw new Exception();
+            }
+        }
+        else {
+            throw new Exception();
+        }
+    } catch (Exception obj){
+            System.out.println("invalid Phone no.");
+        }
+    }
+}
+// to check special characters
+class RegexQ6{
+    public static void main(String[] args) {
+        Pattern p5 = Pattern.compile("\\W");
+        Matcher m5 = p5.matcher("%#@*Y@*hgegfgdsjfgjs jhbdfgfj &^%^%");
+        while (m5.find()){
+            System.out.println(m5.start()+"---"+m5.end()+"---"+m5.group());
+        }
+    }
+}
